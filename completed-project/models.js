@@ -1,20 +1,18 @@
+var knex = require('knex');
 
-module.exports = function(db){
+db = knex({
+	client: 'mysql',
+	connection: {
+		host: "127.0.0.1",
+		user: "root",
+		password: "password",
+		database: "twitter_clone"
+	}
+});
 
-	var models = {};
-	
-	models.tweet = {
 
-		getAll: function(cb){
+var models = {};
 
-		},
+models.tweet = require('./tweet.js')(db);
 
-		create: function(message, user, cb){
-
-		}
-
-	};
-
-	return models;
-
-};
+module.exports = models;
