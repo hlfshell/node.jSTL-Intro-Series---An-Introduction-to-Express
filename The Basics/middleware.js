@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.get(
+app.get("/secret/files",
 	function(req, res, next){
 		if(req.get("SuperSecretAuthToken") == "supersecretcodeword") next();
 		else res.status(401).end();
