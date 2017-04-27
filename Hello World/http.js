@@ -2,8 +2,8 @@ const http = require('http');
 
 var server = http.createServer(function(request, response){
 
-	console.log("Request received!");
-
+	console.log("Request received!", request.url);
+	
 	response.writeHead(200, {"Content-Type": "text/plain"});
 
 	response.end("Hello node.jSTL!");
